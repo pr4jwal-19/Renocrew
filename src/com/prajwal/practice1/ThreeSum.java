@@ -1,4 +1,4 @@
-package com.prajwal.practice;
+package com.prajwal.practice1;
 
 import java.util.Scanner;
 
