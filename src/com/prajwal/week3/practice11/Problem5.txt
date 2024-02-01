@@ -1,0 +1,13 @@
+What is the order of Constructor execution for the following inheritance hierarchy:
+        Base
+          |
+        Derived1
+          |
+        Derived2
+
+Derived2 obj = new Derived2();
+Which Constructor(s) will be executed and what is their order?
+
+Ans: If we are not using super keyword, then it will only run the constructor of Derived2 class
+     Otherwise, if we have used super while defining the constructors of the classes Derived1 and Derived2 then all the
+     three Constructors will be invoked in the order -> Base, Derived1 and Derived2
