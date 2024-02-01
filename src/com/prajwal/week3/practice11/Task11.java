@@ -1,6 +1,7 @@
 package com.prajwal.week3.practice11;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 class Books{
@@ -18,31 +19,28 @@ class Books{
     public String getBookName() {
         return bookName;
     }
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
     public String getBookID() {
         return bookID;
     }
-    public void setBookID(String bookID) {
-        this.bookID = bookID;
-    }
-
     public String getIssueDate() {
         return issueDate;
     }
-    public void setIssueDate(String issueDate) {
-        this.issueDate = issueDate;
-    }
-
     public String getReturnDate() {
         return returnDate;
     }
-    public void setReturnDate(String returnDate) {
-        this.returnDate = returnDate;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Books book = (Books) obj;
+        return Objects.equals(bookID, book.bookID);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookID);
+    }
 }
 
 class Library{
@@ -129,7 +127,8 @@ class LibrarySystem{
             System.out.println("1. ADD BOOKS");
             System.out.println("2. SHOW AVAILABLE BOOKS");
             System.out.println("3. SHOW ISSUED BOOKS");
-            System.out.println("4. EXIT");
+            System.out.println("4. SWITCH TO USER");
+            System.out.println("5. EXIT");
 
             System.out.println("Enter a choice: ");
             int ch = inp.nextInt();
@@ -149,6 +148,10 @@ class LibrarySystem{
                     System.out.println("Exiting Library !");
                     res = "n";
                     userMenu();
+                case 5:
+                    System.out.println("Exiting Library ! Thanks !");
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("Invalid choice ! Please enter valid choice ...");
             }
@@ -167,7 +170,7 @@ class LibrarySystem{
             System.out.println("1. SHOW AVAILABLE BOOKS");
             System.out.println("2. ISSUE A BOOK");
             System.out.println("3. RETURN A BOOK");
-            System.out.println("4. EXIT");
+            System.out.println("4. SWITCH TO ADMIN");
 
             System.out.println("Enter your choice: ");
             int choice = inp.nextInt();
@@ -185,8 +188,8 @@ class LibrarySystem{
                     break;
                 case 4:
                     System.out.println("Exiting the Library !");
-                    System.exit(0);
-                    break;
+                    res = "y";
+                    adminMenu();
                 default:
                     System.out.println("Invalid choice. Please enter valid choice...");
 
