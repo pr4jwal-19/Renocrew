@@ -51,6 +51,13 @@ class Library{
         Library.availBooks = new ArrayList<>();
         Library.issuedBooks = new ArrayList<>();
     }
+    public static void addDefaultBooks() {
+        availBooks.add(new Books("The Pianist", "1845", null, null));
+        availBooks.add(new Books("To Kill a Mockingbird", "7345", null, null));
+        availBooks.add(new Books("Lord of the Rings", "3445", null, null));
+        availBooks.add(new Books("Pride and Prejudice", "1145", null, null));
+        // Add more default books as needed
+    }
     public static String addBooks(String bookName, String bookID){
         availBooks.add(new Books(bookName,bookID,null,null));
         return "Added Books to the library with name: "+bookName+" with book id: "+bookID;
@@ -106,6 +113,7 @@ class LibrarySystem{
                 adminMenu();
             }
         } else {
+            Library.addDefaultBooks();
             userMenu();
         }
 
