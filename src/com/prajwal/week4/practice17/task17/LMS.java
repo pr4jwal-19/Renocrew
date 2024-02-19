@@ -14,34 +14,31 @@ public class LMS {
     public void startLibrarySystem(){
         System.out.println("\t\t\" Welcome to Central Library of Renocrew Solutions \"\t\t");
 
-        System.out.println("Are you registered user (y/n): ");
-        String res = inp.next();
-        if (res.equals("y")){
-            System.out.println("Login : ");
-            System.out.print("Enter userID: ");
-            int userId = inp.nextInt();
-            System.out.print("Enter the user-name: ");
-            String userName = inp.nextLine();
-            inp.nextLine();
-            if (centralLibrary.login(userId,userName)){
-                openLibrary();
-            }
-        } else {
-            System.out.println("Enter your username: ");
+        System.out.println("Please register to use the Library !");
+            System.out.print("Enter your username: ");
             String userName = inp.next();
-            System.out.println("\nEnter your emailID: ");
+            System.out.print("Enter your emailID: ");
             String userEmail = inp.next();
-            System.out.println();
             int userID = centralLibrary.registerUsers(userName, userEmail);
-            System.out.println("Your userID is " + userID);
-            if (centralLibrary.login(userID,userName)){
-                centralLibrary.addDefaultBooks();
-                openLibrary();
-            }else {
-                System.out.println("Some error occurred !");
-            }
-        }
+            System.out.println("You are registered successfully !");
+            centralLibrary.displayUserDetails();
+            login();
 
+    }
+    public void login(){
+        System.out.println("Login : ");
+        System.out.print("Enter userID: ");
+        int userId = inp.nextInt();
+        inp.nextLine();
+        System.out.print("Enter the user-name: ");
+        String userName = inp.nextLine();
+        if (centralLibrary.login(userId,userName)){
+            centralLibrary.addDefaultBooks();
+            openLibrary();
+        } else {
+            System.out.println("Invalid userID or userName !\nPlease enter a valid userID or username !");
+            login();
+        }
     }
 
     private void openLibrary() {
@@ -77,16 +74,17 @@ public class LMS {
         System.out.println("Enter the number of books to add: ");
         int noOfBooks = inp.nextInt();
         inp.nextLine();
-        System.out.println("Enter the book id : ");
-        int bookID = inp.nextInt();
-        inp.nextLine();
-        System.out.print("Enter the book name: ");
-        String bookName = inp.nextLine();
-        inp.nextLine();
-        System.out.print("Enter the book author: ");
-        String bookAuthor = inp.nextLine();
-        inp.nextLine();
-        centralLibrary.addBooks(noOfBooks,bookID,bookName,bookAuthor);
+        for (int i = 0; i < noOfBooks; i++){
+            System.out.println("Enter the book id : ");
+            int bookID = inp.nextInt();
+            inp.nextLine();
+            System.out.print("Enter the book name: ");
+            String bookName = inp.nextLine();
+            System.out.print("Enter the book author: ");
+            String bookAuthor = inp.nextLine();
+            centralLibrary.addBooks(noOfBooks,bookID,bookName,bookAuthor);
+        }
+        System.out.println("Books were added !");
     }
     public void issueBook(){
         System.out.println("Enter the book id: ");
@@ -118,13 +116,12 @@ public class LMS {
     public void returnBook(){
         System.out.print("Enter the book id: ");
         int bookId = inp.nextInt();
+        inp.nextLine();
         System.out.print("Enter the book name: ");
         String bookName = inp.nextLine();
-        inp.nextLine();
         System.out.print("Enter your userName: ");
         String userName = inp.nextLine();
-        inp.nextLine();
-        System.out.println("Enter issued date(YYYY-MM-DD HH:MM): ");
+        System.out.print("Enter issued date(YYYY-MM-DD HH:MM): ");
         String date = inp.nextLine();
         DateTimeFormatter dTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime issueDate = null;

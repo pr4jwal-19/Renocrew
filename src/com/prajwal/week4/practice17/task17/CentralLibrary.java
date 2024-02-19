@@ -36,10 +36,7 @@ public class CentralLibrary implements Users,Books{
 
     @Override
     public void addBooks(int noOfBooks, int bookID, String bookName, String bookAuthor) {
-        for (int i = 0; i < noOfBooks; i++){
-            availableBook.add(new Book(bookID,bookName,bookAuthor));
-        }
-        System.out.println("Books were added !");
+        availableBook.add(new Book(bookID,bookName,bookAuthor));
     }
 
     @Override
