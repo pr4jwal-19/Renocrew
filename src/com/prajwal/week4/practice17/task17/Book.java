@@ -1,6 +1,6 @@
 package com.prajwal.week4.practice17.task17;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Book{
     //    Books-> Book ID, Book Name, Book Author, Issued to, Issued on
@@ -8,15 +8,15 @@ public class Book{
     private String bookName;
     private String bookAuthor;
     private String bookIssuerName;
-    private LocalDateTime bookIssuedOn;
-    private LocalDateTime bookReturnDate;
+    private LocalDate bookIssuedOn;
+    private LocalDate bookReturnDate;
 
     public Book(int bookID, String bookName, String bookAuthor) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
     }
-    public Book(int bookID,String bookName,String bookIssuerName,LocalDateTime bookIssuedOn,LocalDateTime bookReturnDate){
+    public Book(int bookID,String bookName,String bookIssuerName,LocalDate bookIssuedOn,LocalDate bookReturnDate){
         this.bookID = bookID;
         this.bookName = bookName;
         this.bookIssuerName = bookIssuerName;
@@ -56,19 +56,19 @@ public class Book{
         this.bookIssuerName = bookIssuerName;
     }
 
-    public LocalDateTime getBookIssuedOn() {
+    public LocalDate getBookIssuedOn() {
         return bookIssuedOn;
     }
 
-    public void setBookIssuedOn(LocalDateTime bookIssuedOn) {
+    public void setBookIssuedOn(LocalDate bookIssuedOn) {
         this.bookIssuedOn = bookIssuedOn;
     }
 
-    public LocalDateTime getBookReturnDate() {
+    public LocalDate getBookReturnDate() {
         return bookReturnDate;
     }
 
-    public void setBookReturnDate(LocalDateTime bookReturnDate) {
+    public void setBookReturnDate(LocalDate bookReturnDate) {
         this.bookReturnDate = bookReturnDate;
     }
 

@@ -1,7 +1,5 @@
 package com.prajwal.week4.practice17.task17;
 
-import java.util.ArrayList;
-
 public class Task17 {
     public static void main(String[] args) {
         /*

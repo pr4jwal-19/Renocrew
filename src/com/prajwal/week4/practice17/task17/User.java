@@ -41,6 +41,6 @@ public class User {
                 "userID = " + userID +
                 ", userName = '" + userName + '\'' +
                 ", userEmail = '" + userEmail + '\'' +
-                '}';
+                ']';
     }
 }

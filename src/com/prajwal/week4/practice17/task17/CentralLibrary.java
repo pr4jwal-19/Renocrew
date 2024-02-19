@@ -1,6 +1,6 @@
 package com.prajwal.week4.practice17.task17;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.*;
 
 public class CentralLibrary implements Users,Books{
@@ -40,7 +40,7 @@ public class CentralLibrary implements Users,Books{
     }
 
     @Override
-    public Book issueBook(int bookID, String bookName, String userName, LocalDateTime bookIssuedOn, LocalDateTime returnDate) {
+    public Book issueBook(int bookID, String bookName, String userName, LocalDate bookIssuedOn, LocalDate returnDate) {
 
         // Find the book in available books by ID
         Book book = availableBook.stream()
@@ -64,7 +64,7 @@ public class CentralLibrary implements Users,Books{
     }
 
     @Override
-    public Book returnBook(int bookID, String bookName,String userName, LocalDateTime bookIssuedOn, LocalDateTime returnDate) {
+    public Book returnBook(int bookID, String bookName,String userName, LocalDate bookIssuedOn, LocalDate returnDate) {
 
         // Find the book in issued books by ID
         Book book = issuedBooks.stream()

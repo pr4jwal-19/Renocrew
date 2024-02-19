@@ -1,6 +1,6 @@
 package com.prajwal.week4.practice17.task17;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -87,28 +87,28 @@ public class LMS {
         System.out.println("Books were added !");
     }
     public void issueBook(){
-        System.out.println("Enter the book id: ");
+        System.out.print("Enter the book id: ");
         int bookId = inp.nextInt();
         inp.nextLine();
         System.out.print("Enter the book name: ");
         String bookName = inp.nextLine();
-        inp.nextLine();
         System.out.print("Enter your userName: ");
         String userName = inp.nextLine();
-        inp.nextLine();
-        LocalDateTime issueDate = LocalDateTime.now();
-        System.out.println("Enter return date(YYYY-MM-DD HH:MM): ");
+        LocalDate issueDate = LocalDate.now();
+        System.out.println("Enter return date(YYYY-MM-DD): ");
         String date = inp.nextLine();
-        DateTimeFormatter dTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime returnDate = null;
+        DateTimeFormatter dTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate returnDate = null;
         try {
-            returnDate = LocalDateTime.parse(date,dTF);
+            returnDate = LocalDate.parse(date,dTF);
         } catch (Exception e){
-            System.out.println("Invalid date time format . Enter (yyyy-MM-dd HH:mm) this format.");
+            System.out.println("Invalid date time format . Enter (yyyy-MM-dd) this format.");
         }
         Book issuedBook = centralLibrary.issueBook(bookId, bookName, userName, issueDate, returnDate);
         if (issuedBook != null) {
             System.out.println("Book issued successfully.");
+            // added at 14:33
+            centralLibrary.displayIssuedHistory(issuedBook.getBookID(), userName);
         } else {
             System.out.println("Failed to issue the book. Please check the details.");
         }
@@ -123,14 +123,14 @@ public class LMS {
         String userName = inp.nextLine();
         System.out.print("Enter issued date(YYYY-MM-DD HH:MM): ");
         String date = inp.nextLine();
-        DateTimeFormatter dTF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime issueDate = null;
+        DateTimeFormatter dTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate issueDate = null;
         try {
-            issueDate = LocalDateTime.parse(date,dTF);
+            issueDate = LocalDate.parse(date,dTF);
         } catch (Exception e){
-            System.out.println("Invalid date time format . Enter (yyyy-MM-dd HH:mm) this format.");
+            System.out.println("Invalid date time format . Enter (yyyy-MM-dd) this format.");
         }
-        LocalDateTime returnDate = LocalDateTime.now();
+        LocalDate returnDate = LocalDate.now();
         Book returnedBook = centralLibrary.returnBook(bookId,bookName, userName, issueDate, returnDate);
         if (returnedBook != null) {
             System.out.println("Book returned successfully.");
