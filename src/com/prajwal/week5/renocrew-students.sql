@@ -1,0 +1,5 @@
+SHOW DATABASES;
+CREATE DATABASE Renocrew;
+USE Renocrew;
+SHOW TABLES;
+SELECT * FROM student;
