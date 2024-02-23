@@ -1,10 +1,11 @@
-package com.prajwal.week5;
+package com.prajwal.week5.wednesday;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class TableCreation {
+    // if you again run it -> it will give "table Student already exists error"
     public static void main(String[] args) {
         try {
             // load the driver

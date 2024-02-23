@@ -1,4 +1,4 @@
-package com.prajwal.week5;
+package com.prajwal.week5.monday;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
