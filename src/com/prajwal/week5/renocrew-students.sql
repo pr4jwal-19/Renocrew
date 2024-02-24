@@ -15,3 +15,4 @@ DROP TABLE Images;
 
 ALTER TABLE Images MODIFY pic LONGBLOB NOT NULL;
 DESC Images;
+DESC student;
